@@ -25,4 +25,5 @@ This app will allow users to manage their grocery inventory by adding and removi
 
 ## Team Members
 Colin Bakker
+
 Zachary Williams
