@@ -1,14 +1,13 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
+require_relative "classes/db"
+require_relative "classes/service"
+require_relative "classes/cli"
 
 def main
-  if ARGV.empty?
-    puts "Usage: ./my_cli_app.rb <your_name>"
-    exit
-  end
-
-  name = ARGV[0]
-  puts "Hello, #{name}!"
+  db = DB.new("items.pstore")
+  service = Service.new(db)
+  cli = Cli.new(service)
 end
 
 main if __FILE__ == $PROGRAM_NAME
