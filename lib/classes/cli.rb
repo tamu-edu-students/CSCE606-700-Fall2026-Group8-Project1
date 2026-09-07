@@ -38,7 +38,7 @@ class Cli
         print "Enter item threshold: "
         threshold = gets.chomp.to_i
         print "Enter item ID: "
-        id = gets.chomp
+        id = gets.chomp.to_i
         print "Enter item quantity: "
         quantity = gets.chomp.to_i
 
@@ -52,7 +52,7 @@ class Cli
 
     def get_item_by_id
         print "Enter item ID: "
-        id = gets.chomp
+        id = gets.chomp.to_i
         item = @service.get_item(id)
         if item
             puts "Item found: Name: #{item.name}, Threshold: #{item.threshold}, Quantity: #{item.quantity}, ID: #{item.id}"
