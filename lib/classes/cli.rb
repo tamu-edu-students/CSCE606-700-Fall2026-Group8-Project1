@@ -49,4 +49,15 @@ class Cli
             puts "Error adding item: #{e.message}"
         end
     end
+
+    def get_item_by_id
+        print "Enter item ID: "
+        id = gets.chomp
+        item = @service.get_item(id)
+        if item
+            puts "Item found: Name: #{item.name}, Threshold: #{item.threshold}, Quantity: #{item.quantity}, ID: #{item.id}"
+        else
+            puts "Item not found."
+        end
+    end
 end
