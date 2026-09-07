@@ -7,6 +7,9 @@ class DB
   end
 
   def add_item(item)
+    if get_item(item.id)
+      raise "Item with ID #{item.id} already exists."
+    end
     @store.transaction do
       items = @store[:items] || []
       items << item
@@ -18,6 +21,12 @@ class DB
     @store.transaction(true) do
       items = @store[:items] || []
       items.find { |item| item.id == id }
+    end
+  end
+
+  def get_all_items
+    @store.transaction(true) do
+      @store[:items] || []
     end
   end
 end

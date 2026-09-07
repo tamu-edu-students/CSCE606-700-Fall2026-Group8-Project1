@@ -7,6 +7,10 @@ require_relative "classes/cli"
 def main
   db = DB.new("items.pstore")
   service = Service.new(db)
+  puts "All items in the database:"
+  service.get_all_items.each do |item|
+    puts "Item: #{item.name}, Quantity: #{item.quantity}, Threshold: #{item.threshold}, ID: #{item.id}"
+  end
   service.add_item("Another Item", 20, 2, 15)
   retrieved_item = service.get_item(2)
   puts "Retrieved item from service: #{retrieved_item.name}, Quantity: #{retrieved_item.quantity}, Threshold: #{retrieved_item.threshold}, ID: #{retrieved_item.id}"

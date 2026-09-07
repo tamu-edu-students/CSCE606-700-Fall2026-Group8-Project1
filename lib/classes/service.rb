@@ -14,4 +14,8 @@ class Service
     def get_item(id)
         @db.get_item(id)
     end
+
+    def get_all_items
+        @db.get_all_items
+    end
 end
