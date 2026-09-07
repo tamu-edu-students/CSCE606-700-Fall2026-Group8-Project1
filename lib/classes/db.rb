@@ -29,4 +29,10 @@ class DB
       @store[:items] || []
     end
   end
+
+  def clear_items
+    @store.transaction do
+      @store[:items] = []
+    end
+  end
 end

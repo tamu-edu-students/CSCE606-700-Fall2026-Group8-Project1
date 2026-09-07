@@ -18,4 +18,8 @@ class Service
     def get_all_items
         @db.get_all_items
     end
+
+    def clear_items
+        @db.clear_items
+    end
 end
