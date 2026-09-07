@@ -71,4 +71,9 @@ class Cli
             end
         end
     end
+
+    def clear_all_items
+        @service.clear_items
+        puts "All items cleared."
+    end
 end
