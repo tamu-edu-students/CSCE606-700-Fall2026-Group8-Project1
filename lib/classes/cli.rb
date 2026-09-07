@@ -60,4 +60,15 @@ class Cli
             puts "Item not found."
         end
     end
+
+    def get_all_items
+        items = @service.get_all_items
+        if items.empty?
+            puts "No items found."
+        else
+            items.each do |item|
+                puts "Name: #{item.name}, Threshold: #{item.threshold}, Quantity: #{item.quantity}, ID: #{item.id}"
+            end
+        end
+    end
 end
