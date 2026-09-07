@@ -8,6 +8,7 @@ def main
   db = DB.new("items.pstore")
   service = Service.new(db)
   cli = Cli.new(service)
+  cli.run
 end
 
 main if __FILE__ == $PROGRAM_NAME
