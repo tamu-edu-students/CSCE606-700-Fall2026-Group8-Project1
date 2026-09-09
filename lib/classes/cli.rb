@@ -12,7 +12,7 @@ class Cli
     puts "Choose an option:"
     puts "1. Add item"
     puts "2. Update item"
-    puts "3. Get item by ID"
+    puts "3. Get item by name"
     puts "4. Get all items"
     puts "5. Clear all items"
     puts "6. Exit"
@@ -26,7 +26,7 @@ class Cli
       case choice
       when 1 then add_item
       when 2 then update_item
-      when 3 then get_item_by_id
+      when 3 then item_by_name
       when 4 then get_all_items
       when 5 then clear_all_items
       when 6 then break
@@ -66,17 +66,18 @@ class Cli
     end
   end
 
-  def get_item_by_id
-    print "Enter item ID: "
-    id = gets.chomp.to_i
-    item = @service.get_item(id)
+  def item_by_name
+    print "Enter item name: "
+    name = gets.chomp
+    item = @service.get_item_by_name(name)
     if item
-      puts "Item found: Name: #{item.name}, Threshold: #{item.threshold}, Quantity: #{item.quantity}, ID: #{item.id}"
+      puts "Item found: Name: #{item.name}, Threshold: #{item.threshold}, Quantity: #{item.quantity}"
     else
       puts "Item not found."
     end
   end
 
+  # broken
   def get_all_items
     items = @service.get_all_items
     if items.empty?
@@ -88,6 +89,7 @@ class Cli
     end
   end
 
+  # broken
   def clear_all_items
     @service.clear_items
     puts "All items cleared."

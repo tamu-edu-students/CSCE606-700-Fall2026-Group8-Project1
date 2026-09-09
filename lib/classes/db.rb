@@ -27,12 +27,14 @@ class DB
     end
   end
 
+  # broken
   def get_all_items
     @store.transaction(true) do
       @store[:items] || []
     end
   end
 
+  # broken
   def clear_items
     @store.transaction do
       @store[:items] = []

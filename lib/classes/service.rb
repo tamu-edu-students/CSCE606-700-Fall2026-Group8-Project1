@@ -23,14 +23,16 @@ class Service
     @db.upsert_item(item)
   end
 
-  def get_item(id)
-    @db.get_item(id)
+  def get_item_by_name(name)
+    @db.get_item_by_name(name)
   end
 
+  # broken
   def get_all_items
     @db.get_all_items
   end
 
+  # broken
   def clear_items
     @db.clear_items
   end
