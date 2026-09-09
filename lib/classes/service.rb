@@ -7,6 +7,9 @@ class Service
     end
 
     def add_item(name, threshold, id, quantity)
+        if get_item(item.id)
+            raise "Item with ID #{item.id} already exists."
+        end
         item = Item.new(name, threshold, id, quantity)
         @db.add_item(item)
     end
