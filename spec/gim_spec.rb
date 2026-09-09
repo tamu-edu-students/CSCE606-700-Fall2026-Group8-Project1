@@ -26,5 +26,12 @@ RSpec.describe Service do
         expect(stored_item.quantity).to eq(15)
       end
     end
+
+    context "when the item does not exists" do
+      it "raises an error and does not save a new item" do
+        expect { service.update_item("Apples", 10, 15) }.to raise_error(RuntimeError)
+        expect(db.get_item_by_name("Apples")).to be_nil
+      end
+    end
   end
 end
