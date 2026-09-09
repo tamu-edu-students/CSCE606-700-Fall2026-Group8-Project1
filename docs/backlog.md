@@ -9,3 +9,9 @@
 | update item | add UI interface for update item | done |
 | update item | add tests to spec | done |
 | update item error handling | add tests to spec | done |
+| delete item | add delete item method to db class | todo |
+| delete item | add delete item method to service class | todo |
+| delete item | add UI interface for delete item | todo |
+| delete item | add tests to spec | todo |
+| delete item error handling | add check for item exists to service | todo |
+| delete item error handling | add tests to spec | todo |
