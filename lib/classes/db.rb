@@ -21,10 +21,9 @@ class DB
     end
   end
 
-  def get_item(id)
+  def get_item_by_name(item_name)
     @store.transaction(true) do
-      items = @store[:items] || []
-      items.find { |item| item.id == id }
+      @store[item_name]
     end
   end
 

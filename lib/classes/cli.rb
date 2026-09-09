@@ -24,32 +24,30 @@ class Cli
       choice = gets.chomp.to_i
 
       case choice
-      when 1
-        add_item
-      when 2
-        update_item
-      when 3
-        get_item_by_id
-      when 4
-        get_all_items
-      when 5
-        clear_all_items
-      when 6
-        break
+      when 1 then add_item
+      when 2 then update_item
+      when 3 then get_item_by_id
+      when 4 then get_all_items
+      when 5 then clear_all_items
+      when 6 then break
       else
         puts "Invalid option. Please try again."
       end
     end
   end
 
-  def add_item
+  def upsert_input
     print "Enter item name: "
     name = gets.chomp
     print "Enter item threshold: "
     threshold = gets.chomp.to_i
     print "Enter item quantity: "
     quantity = gets.chomp.to_i
+    [name, threshold, quantity]
+  end
 
+  def add_item
+    name, threshold, quantity = upsert_input
     begin
       @service.add_item(name, threshold, quantity)
       puts "Item added successfully."
@@ -59,12 +57,7 @@ class Cli
   end
 
   def update_item
-    print "Enter item name: "
-    name = gets.chomp
-    print "Enter item threshold: "
-    threshold = gets.chomp.to_i
-    print "Enter item quantity: "
-    quantity = gets.chomp.to_i
+    name, threshold, quantity = upsert_input
     begin
       @service.update_item(name, threshold, quantity)
       puts "Item updated successfully."
