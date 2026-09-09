@@ -15,11 +15,9 @@ class DB
     end
   end
 
-  def add_item(item)
+  def item_exists?(item_name)
     @store.transaction do
-      items = @store[:items] || []
-      items << item
-      @store[:items] = items
+      @store.root?(item_name)
     end
   end
 

@@ -37,13 +37,11 @@ class Cli
         name = gets.chomp
         print "Enter item threshold: "
         threshold = gets.chomp.to_i
-        print "Enter item ID: "
-        id = gets.chomp.to_i
         print "Enter item quantity: "
         quantity = gets.chomp.to_i
 
         begin
-            @service.add_item(name, threshold, id, quantity)
+            @service.add_item(name, threshold, quantity)
             puts "Item added successfully."
         rescue => e
             puts "Error adding item: #{e.message}"
