@@ -8,26 +8,33 @@ class Cli
     @service = service
   end
 
+  def print_menu
+    puts "Choose an option:"
+    puts "1. Add item"
+    puts "2. Update item"
+    puts "3. Get item by ID"
+    puts "4. Get all items"
+    puts "5. Clear all items"
+    puts "6. Exit"
+  end
+
   def run
     loop do
-      puts "Choose an option:"
-      puts "1. Add item"
-      puts "2. Get item by ID"
-      puts "3. Get all items"
-      puts "4. Clear all items"
-      puts "5. Exit"
+      print_menu
       choice = gets.chomp.to_i
 
       case choice
       when 1
         add_item
       when 2
-        get_item_by_id
+        update_item
       when 3
-        get_all_items
+        get_item_by_id
       when 4
-        clear_all_items
+        get_all_items
       when 5
+        clear_all_items
+      when 6
         break
       else
         puts "Invalid option. Please try again."

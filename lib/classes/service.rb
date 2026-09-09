@@ -10,14 +10,14 @@ class Service
   end
 
   def add_item(name, threshold, quantity)
-    raise "Item with ID #{item.id} already exists." if @db.item_exists(name)
+    raise "Item with name #{name} already exists." if @db.item_exists?(name)
 
-    item = Item.new(name, threshold, id, quantity)
+    item = Item.new(name, threshold, quantity)
     @db.upsert_item(item)
   end
 
   def update_item(name, threshold, quantity)
-    raise "Item with name #{name} does not exist" unless @db.item_exists(name)
+    raise "Item with name #{name} does not exist" unless @db.item_exists?(name)
 
     item = Item.new(name, threshold, quantity)
     @db.upsert_item(item)

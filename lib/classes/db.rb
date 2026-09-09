@@ -11,7 +11,7 @@ class DB
 
   def upsert_item(item)
     @store.transaction do
-      @store[:item.name] = item
+      @store[item.name] = item
     end
   end
 

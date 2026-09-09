@@ -2,7 +2,7 @@
 
 # Inventory item definition
 class Item
-  attr_accessor :name, :quantity, :threshold, :id
+  attr_accessor :name, :quantity, :threshold
 
   def initialize(name, threshold, quantity)
     @name = name
