@@ -1,10 +1,12 @@
-class Item
-  attr_accessor :name, :quantity, :threshold, :id
+# frozen_string_literal: true
 
-  def initialize(name, threshold, id, quantity)
+# Inventory item definition
+class Item
+  attr_accessor :name, :quantity, :threshold
+
+  def initialize(name, threshold, quantity)
     @name = name
     @threshold = threshold
-    @id = id
     @quantity = quantity
   end
 end
