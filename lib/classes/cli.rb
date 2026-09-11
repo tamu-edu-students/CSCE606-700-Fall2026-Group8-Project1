@@ -84,7 +84,7 @@ class Cli
       puts "No items found."
     else
       items.each do |item|
-        puts "Name: #{item.name}, Threshold: #{item.threshold}, Quantity: #{item.quantity}, ID: #{item.id}"
+        puts "Name: #{item.name}, Threshold: #{item.threshold}, Quantity: #{item.quantity}"
       end
     end
   end
