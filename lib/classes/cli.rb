@@ -13,7 +13,7 @@ class Cli
     puts "1. Add item"
     puts "2. Update item"
     puts "3. Get item by name"
-    puts "4. Get all items"
+    puts "4. View inventory"
     puts "5. Clear all items"
     puts "6. Exit"
   end
@@ -83,6 +83,7 @@ class Cli
     if items.empty?
       puts "No items found."
     else
+      puts "Inventory:"
       items.each do |item|
         puts "Name: #{item.name}, Threshold: #{item.threshold}, Quantity: #{item.quantity}"
       end
