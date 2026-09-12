@@ -60,4 +60,16 @@ RSpec.describe Service do
       end
     end
   end
+
+  describe "#view_inventory" do
+    it "returns all items in the inventory" do
+      item1 = Item.new("Mangoes", 2, 5)
+      item2 = Item.new("Pineapples", 4, 12)
+      db.upsert_item(item1)
+      db.upsert_item(item2)
+
+      inventory = service.get_all_items
+      expect(inventory.map(&:name)).to contain_exactly("Mangoes", "Pineapples")
+    end
+  end
 end
