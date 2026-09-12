@@ -27,7 +27,6 @@ class Service
     @db.get_item_by_name(name)
   end
 
-  # broken
   def get_all_items
     @db.get_all_items
   end

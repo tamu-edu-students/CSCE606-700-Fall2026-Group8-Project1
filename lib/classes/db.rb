@@ -27,7 +27,6 @@ class DB
     end
   end
 
-  # broken
   def get_all_items
     @store.transaction(true) do
       @store.roots.map { |name| @store[name] }

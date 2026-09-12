@@ -77,7 +77,6 @@ class Cli
     end
   end
 
-  # broken
   def get_all_items
     items = @service.get_all_items
     if items.empty?
