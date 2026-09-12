@@ -4,6 +4,10 @@
 | --- | --- | --- |
 | add item | add add item method to service class | done |
 | add item | add UI interface for add item | done |
+| add item | add add item method to db class | done |
+| view inventory | add get all items to service class | done |
+| view inventory | add get all items to db class | done |
+| view inventory | add get all items to cli class | done |
 | update item | add upsert item method to db class | done |
 | update item | add update item method to service class | done |
 | update item | add UI interface for update item | done |
