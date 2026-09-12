@@ -27,17 +27,16 @@ class DB
     end
   end
 
-  # broken
   def get_all_items
     @store.transaction(true) do
-      @store[:items] || []
+      @store.roots.map { |name| @store[name] }
     end
   end
 
   # broken
   def clear_items
     @store.transaction do
-      @store[:items] = []
+      @store.roots.each { |name| @store.delete(name) }
     end
   end
 end
