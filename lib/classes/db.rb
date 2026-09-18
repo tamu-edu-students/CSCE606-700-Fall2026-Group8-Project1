@@ -39,10 +39,15 @@ class DB
     end
   end
 
-  # broken
   def clear_items
     @store.transaction do
       @store.roots.each { |name| @store.delete(name) }
+    end
+  end
+
+  def get_shortage_items
+    @store.transaction(true) do
+      @store.roots.map { |name| @store[name] }.select { |item| item.quantity < item.threshold }
     end
   end
 end

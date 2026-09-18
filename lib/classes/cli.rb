@@ -16,7 +16,8 @@ class Cli
     puts "4. Get item by name"
     puts "5. View inventory"
     puts "6. Clear all items"
-    puts "7. Exit"
+    puts "7. View shopping list (items below threshold)"
+    puts "8. Exit"
   end
 
   def run
@@ -31,7 +32,8 @@ class Cli
       when 4 then item_by_name
       when 5 then get_all_items
       when 6 then clear_all_items
-      when 7 then break
+      when 7 then get_shortage_items
+      when 8 then break
       else
         puts "Invalid option. Please try again."
       end
@@ -116,9 +118,20 @@ class Cli
     end
   end
 
-  # broken
   def clear_all_items
     @service.clear_items
     puts "All items cleared."
+  end
+
+  def get_shortage_items
+    items = @service.get_shortage_items
+    if items.empty?
+      puts "No items are below their threshold."
+    else
+      puts "Shopping List:"
+      items.each do |item|
+        puts "Name: #{item.name}, Needed: #{item.threshold - item.quantity} more to reach threshold."
+      end
+    end
   end
 end

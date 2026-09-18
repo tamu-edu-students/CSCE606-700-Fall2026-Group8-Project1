@@ -23,3 +23,7 @@
 | delete item | add tests to spec | done |
 | delete item error handling | add check for item exists to service | done |
 | delete item error handling | add tests to spec | done |
+| generate shopping list | add get shopping list method to db class | done |
+| generate shopping list | add get shopping list method to service class | done |
+| generate shopping list | add get shopping list method to cli class | done |
+| generate shopping list | add get shopping list option to the terminal | done |

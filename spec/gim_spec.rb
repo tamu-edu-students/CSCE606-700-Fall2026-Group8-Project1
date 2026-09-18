@@ -101,4 +101,28 @@ RSpec.describe Service do
       end
     end
   end
+
+  describe "#get_shortage_items" do
+    it "returns items below their threshold" do
+      item1 = Item.new("Strawberries", 5, 3) # Below threshold
+      item2 = Item.new("Blueberries", 4, 6)  # Above threshold
+      item3 = Item.new("Raspberries", 2, 1)   # Below threshold
+      db.upsert_item(item1)
+      db.upsert_item(item2)
+      db.upsert_item(item3)
+
+      shortage_items = service.get_shortage_items
+      expect(shortage_items.map(&:name)).to contain_exactly("Strawberries", "Raspberries")
+    end
+
+    it "returns an empty array when no items are below their threshold" do
+      item1 = Item.new("Cherries", 5, 6) # Above threshold
+      item2 = Item.new("Plums", 4, 5)     # Above threshold
+      db.upsert_item(item1)
+      db.upsert_item(item2)
+
+      shortage_items = service.get_shortage_items
+      expect(shortage_items).to be_empty
+    end
+  end
 end
