@@ -59,6 +59,13 @@ RSpec.describe Service do
         expect(stored_item.quantity).to eq(8)
       end
     end
+
+    context "when non numeric values are provided for threshold or quantity" do
+      it "raises an error" do
+        expect { service.add_item("Peaches", "five", 10) }.to raise_error(ArgumentError)
+        expect { service.add_item("Peaches", 5, "ten") }.to raise_error(ArgumentError)
+      end
+    end
   end
 
   describe "#view_inventory" do
