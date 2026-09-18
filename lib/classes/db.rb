@@ -15,6 +15,12 @@ class DB
     end
   end
 
+  def delete_item(item)
+    @store.transaction do
+      @store.delete(item.name)
+    end
+  end
+
   def item_exists?(item_name)
     @store.transaction do
       @store.root?(item_name)
