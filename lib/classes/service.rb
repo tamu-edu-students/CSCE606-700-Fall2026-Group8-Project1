@@ -11,7 +11,9 @@ class Service
 
   def add_item(name, threshold, quantity)
     raise "Item with name #{name} already exists." if @db.item_exists?(name)
-
+    if !threshold.is_a?(Integer) || !quantity.is_a?(Integer)
+      raise ArgumentError, "Threshold and quantity must be integers."
+    end
     item = Item.new(name, threshold, quantity)
     @db.upsert_item(item)
   end
