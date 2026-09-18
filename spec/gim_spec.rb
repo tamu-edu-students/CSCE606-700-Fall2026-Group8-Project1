@@ -72,4 +72,26 @@ RSpec.describe Service do
       expect(inventory.map(&:name)).to contain_exactly("Mangoes", "Pineapples")
     end
   end
+
+  describe "#delete_item" do
+    context "when the item does not exist" do
+      it "raises an error" do
+        expect(db.item_exists?("Oranges")).to eq(false)
+        expect { service.delete_item("Oranges") }.to raise_error(RuntimeError)
+      end
+    end
+
+    context "when the item does exist" do
+      before do
+        existing_item = Item.new("Oranges", 3, 8)
+        db.upsert_item(existing_item)
+      end
+
+      it "successfully deletes the item" do
+        expect(db.item_exists?("Oranges")).to eq(true)
+        expect { service.delete_item("Oranges") }.not_to raise_error
+        expect(db.item_exists?("Oranges")).to eq(false)
+      end
+    end
+  end
 end
