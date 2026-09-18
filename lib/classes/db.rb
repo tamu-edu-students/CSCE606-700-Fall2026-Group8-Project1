@@ -15,9 +15,9 @@ class DB
     end
   end
 
-  def delete_item(item)
+  def delete_item(item_name)
     @store.transaction do
-      @store.delete(item.name)
+      @store.delete(item_name)
     end
   end
 
