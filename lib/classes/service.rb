@@ -39,8 +39,11 @@ class Service
     @db.get_all_items
   end
 
-  # broken
   def clear_items
     @db.clear_items
+  end
+
+  def get_shortage_items
+    @db.get_shortage_items
   end
 end
