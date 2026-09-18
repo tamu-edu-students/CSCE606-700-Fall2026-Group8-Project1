@@ -5,6 +5,8 @@
 | add item | add add item method to service class | done |
 | add item | add UI interface for add item | done |
 | add item | add add item method to db class | done |
+| add item error checking | throw error if item already exists | done |
+| add item error checking | throw error if integer arguments aren't integer | done |
 | view inventory | add get all items to service class | done |
 | view inventory | add get all items to db class | done |
 | view inventory | add get all items to cli class | done |
