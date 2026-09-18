@@ -12,10 +12,11 @@ class Cli
     puts "Choose an option:"
     puts "1. Add item"
     puts "2. Update item"
-    puts "3. Get item by name"
-    puts "4. View inventory"
-    puts "5. Clear all items"
-    puts "6. Exit"
+    puts "3. Delete item"
+    puts "4. Get item by name"
+    puts "5. View inventory"
+    puts "6. Clear all items"
+    puts "7. Exit"
   end
 
   def run
@@ -26,10 +27,11 @@ class Cli
       case choice
       when 1 then add_item
       when 2 then update_item
-      when 3 then item_by_name
-      when 4 then get_all_items
-      when 5 then clear_all_items
-      when 6 then break
+      when 3 then delete_item
+      when 4 then item_by_name
+      when 5 then get_all_items
+      when 6 then clear_all_items
+      when 7 then break
       else
         puts "Invalid option. Please try again."
       end
@@ -63,6 +65,21 @@ class Cli
       puts "Item updated successfully."
     rescue StandardError => e
       puts "Error updating item: #{e.message}"
+    end
+  end
+
+  def delete_input
+    print "Enter item name: "
+    gets.chomp
+  end
+
+  def delete_item
+    name = delete_input
+    begin
+      @service.delete_item(name)
+      puts "Item deleted successfully."
+    rescue StandardError => e
+      puts "Error deleting item: #{e.message}"
     end
   end
 

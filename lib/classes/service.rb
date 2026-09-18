@@ -23,6 +23,12 @@ class Service
     @db.upsert_item(item)
   end
 
+  def delete_item(name)
+    raise "Item with name #{name} does not exist" unless @db.item_exists?(name)
+
+    @db.delete_item(name)
+  end
+
   def get_item_by_name(name)
     @db.get_item_by_name(name)
   end
