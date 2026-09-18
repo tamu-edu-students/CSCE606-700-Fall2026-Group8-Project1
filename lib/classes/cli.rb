@@ -42,9 +42,19 @@ class Cli
     print "Enter item name: "
     name = gets.chomp
     print "Enter item threshold: "
-    threshold = gets.chomp.to_i
+    begin
+      threshold = Integer(gets.chomp)
+    rescue ArgumentError
+      puts "Invalid input for threshold. Please enter a valid integer."
+      return upsert_input
+    end
     print "Enter item quantity: "
-    quantity = gets.chomp.to_i
+    begin
+      quantity = Integer(gets.chomp)
+    rescue ArgumentError
+      puts "Invalid input for quantity. Please enter a valid integer."
+      return upsert_input
+    end
     [name, threshold, quantity]
   end
 
