@@ -14,6 +14,7 @@ class Service
     if !threshold.is_a?(Integer) || !quantity.is_a?(Integer)
       raise ArgumentError, "Threshold and quantity must be integers."
     end
+
     item = Item.new(name, threshold, quantity)
     @db.upsert_item(item)
   end
@@ -35,15 +36,15 @@ class Service
     @db.get_item_by_name(name)
   end
 
-  def get_all_items
-    @db.get_all_items
+  def all_items
+    @db.all_items
   end
 
   def clear_items
     @db.clear_items
   end
 
-  def get_shortage_items
-    @db.get_shortage_items
+  def shortage_items
+    @db.shortage_items
   end
 end

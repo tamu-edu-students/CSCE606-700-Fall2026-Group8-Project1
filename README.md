@@ -19,11 +19,16 @@ Run `rake spec` to run the tests.
 
 ## Main Features
 
-...
+- Add items to inventory (item name, quantity, minimum quantity threshold)
+- Delete items from inventory
+- Update items in inventory
+- See items (by name, all items, items below threshold)
 
 ## Known Limitations
 
-...
+- Unable to set item expiration 
+- Items must be inserted and updated one at a time
+- Updating item requires inputting quantity and threshold, cannot update just quantity or just threshold on their own
 
 ## Team Members
 Colin Bakker

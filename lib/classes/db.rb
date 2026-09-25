@@ -33,7 +33,7 @@ class DB
     end
   end
 
-  def get_all_items
+  def all_items
     @store.transaction(true) do
       @store.roots.map { |name| @store[name] }
     end
@@ -45,7 +45,7 @@ class DB
     end
   end
 
-  def get_shortage_items
+  def shortage_items
     @store.transaction(true) do
       @store.roots.map { |name| @store[name] }.select { |item| item.quantity < item.threshold }
     end

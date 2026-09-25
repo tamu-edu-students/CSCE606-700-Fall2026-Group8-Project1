@@ -2,7 +2,7 @@
 
 require_relative "service"
 
-# User interface
+# User interface class
 class Cli
   def initialize(service)
     @service = service
@@ -30,9 +30,9 @@ class Cli
       when 2 then update_item
       when 3 then delete_item
       when 4 then item_by_name
-      when 5 then get_all_items
+      when 5 then all_items
       when 6 then clear_all_items
-      when 7 then get_shortage_items
+      when 7 then shortage_items
       when 8 then break
       else
         puts "Invalid option. Please try again."
@@ -106,8 +106,8 @@ class Cli
     end
   end
 
-  def get_all_items
-    items = @service.get_all_items
+  def all_items
+    items = @service.all_items
     if items.empty?
       puts "No items found."
     else
@@ -123,8 +123,8 @@ class Cli
     puts "All items cleared."
   end
 
-  def get_shortage_items
-    items = @service.get_shortage_items
+  def shortage_items
+    items = @service.shortage_items
     if items.empty?
       puts "No items are below their threshold."
     else
