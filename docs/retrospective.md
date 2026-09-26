@@ -1,9 +1,10 @@
 # Retrospective
 
 ## What went well
-
+The core function of the project went well. We split up the work well and completed our assigned issues within a timely manner. All of the tests written in the test bench passed with minimal revisions.
 ## What was difficult
-
+During this project, we faced a few main challenges. One was how to ensure that the database was persistent across runs. After researching several options, we settled on pstore as our persistent storage. The next issue we ran into was the datatype of the database. It was unintentionally implemented as an array initially due to simplicity and lack of experience with different datatypes in ruby. After discussing the options, we decided that a key value format works better for this service due to the runtime implications and lack of duplicate keys. Speaking of duplicate entries, we ran into a problem of how to deal with duplicates after switching to a key value storage. If a user added an item that already exists, then it would be updated without their knowledge. To account for this, we added an update item function that allows the user to update the quantity and threshold values of existing items without using the add item feature. The add item feature now complains if the item already exists.
 ## Future improvements?
-
+There are many opportunities for this service to grow in the future. First, we could implement our stretch goals that we were unable to achieve in the timeline of this project, expiration date and price. We could also add database visualization and a clean GUI rather than the terminal. We could also conduct user tests so that we could improve our existing features or implement ones that our users suggest.
 ## Met original goal?
+The original goal was to make a product that would allow inventory management to be a breeze. All of the core functions we set out to implement were properly implemented and fit the expected goal. First, the add item feature allows users to store all the information about their inventory within the program's database. The update item feature allows users to keep track of their quantity accurately or change their minimum threshold value if necessary. The delete item allows users to no longer track items that they do not store to keep the database reflective of their actual store. The view inventory feature allows users to easily view their stores inventory and quantities. The shopping list feature allows users to easily see what they need to order to keep their store stocked. All of these features ensure that our original goal was met.
